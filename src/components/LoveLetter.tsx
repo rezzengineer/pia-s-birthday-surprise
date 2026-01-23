@@ -14,26 +14,13 @@ const LoveLetter = () => {
   // ============================================
   const LOVE_LETTER = `Dear Pia,
 
-Happy Birthday to the most amazing person in my life! 🎂
-
-From the moment we met, you've made my world brighter and more beautiful. Your smile lights up even my darkest days, and your laugh is my favorite sound in the entire universe.
-
-Every day with you feels like a beautiful dream I never want to wake up from. You're not just my partner – you're my best friend, my confidant, and my greatest adventure.
-
-I'm so grateful for every moment we share together, from our silly conversations to our quiet moments. You make everything better just by being you.
-
-On this special day, I want you to know how deeply I love you and how lucky I feel to have you in my life. Here's to many more birthdays together, many more adventures, and a lifetime of love and happiness.
-
-I love you to the moon and back! 🌙✨
-
-Forever yours,
-Your loving partner 💕`;
+Happy Birthday Sayang nya aku, kamu hari ini berulang tahun ya?apakah kamu tadi pagi sedikit sedih tidak sayang wkwkwk, aku ga lupa loh sama ulang tahun kamu. Aku ingat ingat sekali ulang tahun kami, bahkan hari ini adalah hari yang sangat aku tunggu banget. Aku anggap ini adalah hadiah pertama aku di ulang tahun ini, karna apa cik?masih ada kejutan kejutan yang menunggu kamu sayang wkwkwk. Sayang kamu semoga sehat selalu dan juga dimudahkan selalu urusannya ya sayangku. Sayang kamu harus berbahagia ya hari ini, jangan sampe kamu ga fokus sama tujuan dan kegiatan kamu okey?aku selalu sayang dan gapernah ada rasa tidak cinta kepadamu eaaa. Sekali lagi happy birthday sayangnya aku💕`;
 
   useEffect(() => {
     if (hasStarted && !isTyping) {
       setIsTyping(true);
       let index = 0;
-      
+
       const typingInterval = setInterval(() => {
         if (index < LOVE_LETTER.length) {
           setDisplayedText(LOVE_LETTER.substring(0, index + 1));
@@ -55,7 +42,7 @@ Your loving partner 💕`;
           setHasStarted(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     if (letterRef.current) {
@@ -86,9 +73,7 @@ Your loving partner 💕`;
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
             A Letter For You 💌
           </h2>
-          <p className="text-muted-foreground">
-            Words from my heart to yours
-          </p>
+          <p className="text-muted-foreground">Words from my heart to yours</p>
         </div>
 
         {/* Letter */}
@@ -123,7 +108,9 @@ Your loving partner 💕`;
               <pre className="font-fredoka text-foreground whitespace-pre-wrap leading-relaxed text-base md:text-lg">
                 {displayedText}
                 {isTyping && (
-                  <span className="typewriter-cursor text-primary font-bold">|</span>
+                  <span className="typewriter-cursor text-primary font-bold">
+                    |
+                  </span>
                 )}
               </pre>
 

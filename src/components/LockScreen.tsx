@@ -15,11 +15,11 @@ const LockScreen = ({ onUnlock }: LockScreenProps) => {
   // TODO: CHANGE THIS TO YOUR ANNIVERSARY DATE
   // Format: any string you want (e.g., "14-02", "140223", "valentine")
   // ============================================
-  const SECRET_PASSWORD = "0000";
+  const SECRET_PASSWORD = "13-05";
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (password === SECRET_PASSWORD) {
       onUnlock();
     } else {
@@ -40,9 +40,13 @@ const LockScreen = ({ onUnlock }: LockScreenProps) => {
           <motion.div
             key={i}
             className="absolute text-primary/40"
-            initial={{ 
-              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 400),
-              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800)
+            initial={{
+              x:
+                Math.random() *
+                (typeof window !== "undefined" ? window.innerWidth : 400),
+              y:
+                Math.random() *
+                (typeof window !== "undefined" ? window.innerHeight : 800),
             }}
             animate={{
               y: [0, -20, 0],
@@ -61,15 +65,15 @@ const LockScreen = ({ onUnlock }: LockScreenProps) => {
 
       <motion.div
         initial={{ opacity: 0, scale: 0.8, y: 20 }}
-        animate={{ 
-          opacity: 1, 
-          scale: 1, 
+        animate={{
+          opacity: 1,
+          scale: 1,
           y: 0,
-          x: shake ? [0, -10, 10, -10, 10, 0] : 0
+          x: shake ? [0, -10, 10, -10, 10, 0] : 0,
         }}
-        transition={{ 
+        transition={{
           duration: 0.6,
-          x: { duration: 0.4 }
+          x: { duration: 0.4 },
         }}
         className="kawaii-card max-w-md w-full text-center relative"
       >

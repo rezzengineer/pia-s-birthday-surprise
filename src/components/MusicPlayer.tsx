@@ -46,14 +46,14 @@ const MusicPlayer = () => {
   return (
     <>
       <audio ref={audioRef} src={MUSIC_SOURCE} preload="auto" />
-      
+
       <motion.div
         className="fixed bottom-6 right-6 z-50"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.5, type: "spring" }}
       >
-        <div 
+        <div
           className="relative"
           onMouseEnter={() => setIsExpanded(true)}
           onMouseLeave={() => setIsExpanded(false)}
@@ -87,16 +87,24 @@ const MusicPlayer = () => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            animate={isPlaying ? { 
-              boxShadow: [
-                "0 0 0 0 hsl(340 80% 78% / 0.4)",
-                "0 0 0 15px hsl(340 80% 78% / 0)",
-              ]
-            } : {}}
-            transition={isPlaying ? { 
-              duration: 1.5, 
-              repeat: Infinity 
-            } : {}}
+            animate={
+              isPlaying
+                ? {
+                    boxShadow: [
+                      "0 0 0 0 hsl(340 80% 78% / 0.4)",
+                      "0 0 0 15px hsl(340 80% 78% / 0)",
+                    ],
+                  }
+                : {}
+            }
+            transition={
+              isPlaying
+                ? {
+                    duration: 1.5,
+                    repeat: Infinity,
+                  }
+                : {}
+            }
             onClick={togglePlay}
             className="w-14 h-14 bg-primary rounded-full shadow-float flex items-center justify-center text-primary-foreground relative"
           >
@@ -105,20 +113,20 @@ const MusicPlayer = () => {
             ) : (
               <Play className="w-6 h-6 ml-1" />
             )}
-            
+
             {/* Music notes animation */}
             {isPlaying && (
               <motion.div
                 className="absolute -top-1 -right-1"
-                animate={{ 
+                animate={{
                   y: [-5, -15],
                   opacity: [1, 0],
-                  rotate: [0, 20]
+                  rotate: [0, 20],
                 }}
-                transition={{ 
-                  duration: 1.5, 
+                transition={{
+                  duration: 1.5,
                   repeat: Infinity,
-                  repeatDelay: 0.5
+                  repeatDelay: 0.5,
                 }}
               >
                 <Music className="w-4 h-4 text-primary" />

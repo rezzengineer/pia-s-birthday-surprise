@@ -9,27 +9,27 @@ import { Heart, X, ChevronLeft, ChevronRight, Camera } from "lucide-react";
 // ============================================
 const GALLERY_IMAGES = [
   {
-    src: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400&h=500&fit=crop",
-    caption: "Our first photo together 💕",
+    src: "/img/pict1.jpeg",
+    caption: "Cantiknya pacar aku 💕",
   },
   {
-    src: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=400&h=300&fit=crop",
-    caption: "That amazing sunset we watched 🌅",
+    src: "/img/pict2.jpeg",
+    caption: "Wanita aku yang tercantik",
   },
   {
-    src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400&h=400&fit=crop",
-    caption: "You looking absolutely beautiful ✨",
+    src: "/img/pict3.jpeg",
+    caption: "Pia ku yang tersayang ✨",
   },
   {
-    src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&h=350&fit=crop",
-    caption: "Our favorite coffee date ☕",
+    src: "/img/pict4.jpeg",
+    caption: "Wanita yang kucintai ☕",
   },
   {
-    src: "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=400&h=450&fit=crop",
-    caption: "Adventure time together! 🎒",
+    src: "/img/pict5.jpeg",
+    caption: "Pacarku yang gemas 🎒",
   },
   {
-    src: "https://images.unsplash.com/photo-1523301343968-6a6ebf63c672?w=400&h=380&fit=crop",
+    src: "/img/pict6.jpeg",
     caption: "My favorite person 💝",
   },
 ];
@@ -53,11 +53,15 @@ const PhotoGallery = () => {
 
   const navigatePhoto = (direction: "prev" | "next") => {
     if (selectedIndex === null) return;
-    
+
     if (direction === "prev") {
-      setSelectedIndex(selectedIndex === 0 ? GALLERY_IMAGES.length - 1 : selectedIndex - 1);
+      setSelectedIndex(
+        selectedIndex === 0 ? GALLERY_IMAGES.length - 1 : selectedIndex - 1,
+      );
     } else {
-      setSelectedIndex(selectedIndex === GALLERY_IMAGES.length - 1 ? 0 : selectedIndex + 1);
+      setSelectedIndex(
+        selectedIndex === GALLERY_IMAGES.length - 1 ? 0 : selectedIndex + 1,
+      );
     }
   };
 
@@ -107,10 +111,10 @@ const PhotoGallery = () => {
                     alt={image.caption}
                     className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  
+
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
+
                   {/* Caption on hover */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                     <p className="text-primary-foreground text-sm font-medium">
@@ -210,9 +214,7 @@ const PhotoGallery = () => {
                       setSelectedIndex(i);
                     }}
                     className={`w-2 h-2 rounded-full transition-all ${
-                      i === selectedIndex
-                        ? "bg-primary w-6"
-                        : "bg-card/50"
+                      i === selectedIndex ? "bg-primary w-6" : "bg-card/50"
                     }`}
                   />
                 ))}
